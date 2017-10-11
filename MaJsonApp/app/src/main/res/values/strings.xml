@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">MaJsonApp</string>
+
+    <string name="activity_main_title">Connectez vous</string>
+    <string name="activity_main_login_hint">Login </string>
+    <string name="activity_main_mdp_hint">Mot de passe</string>
+    <string name="activity_main_btn">Connexion</string>
+
+
+
+    <string name="activity_mission_title">Vos missions</string>
+    <string name="activity_logout_btn">Déconnexion</string>
+
+    <string name="ws_manager_good_login">jamesbond</string>
+    <string name="ws_manager_good_mdp">azerty</string>
+    <string name="ws_manager_success">SUCCESS</string>
+
+    <!-- json key -->
+    <string name="json_login">login</string>
+    <string name="json_mdp">password</string>
+</resources>

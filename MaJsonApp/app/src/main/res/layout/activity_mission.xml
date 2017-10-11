@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="ma_json_app.tguillaume.com.majsonapp.MJAMissionActivity"
+    android:background="@color/MJA_Gray_48">
+
+    <TextView
+        android:id="@+id/activity_mission_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="15dp"
+        android:textStyle="bold"
+        android:textSize="25sp"
+        android:textColor="@color/MJA_Yellow_gold"
+        android:text="@string/activity_mission_title"/>
+
+    <ListView
+        android:id="@+id/activity_mission_listview"
+        android:layout_above="@+id/activity_mission_logout_btn"
+        android:layout_below="@+id/activity_mission_title"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp">
+
+    </ListView>
+
+    <Button
+        android:id="@+id/activity_mission_logout_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="10dp"
+        android:background="@color/MJA_Red"
+        android:padding="15dp"
+        android:textColor="@color/MJA_White_transparent"
+        android:textSize="18sp"
+        android:text="@string/activity_logout_btn"/>
+
+
+</RelativeLayout>

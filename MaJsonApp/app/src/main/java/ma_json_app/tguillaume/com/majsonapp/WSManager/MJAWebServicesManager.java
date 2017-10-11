@@ -1,0 +1,77 @@
+package ma_json_app.tguillaume.com.majsonapp.WSManager;
+
+/**
+ * @Project : AND_MaJsonApp
+ *
+ * MJAWebServicesManager.java
+ *
+ * Created by TARTARA Guillaume on 11/10/2017
+ * Copyright © 2017 tguillaume. All rights reserved.
+ */
+
+import android.content.Context;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import ma_json_app.tguillaume.com.majsonapp.R;
+
+/**
+ * Cette classe permet de similuer le comportement du web service
+ * nous allons passer par celle ci pour interroger notre web service fictif et obtenir une
+ * réponse.
+ */
+
+public class MJAWebServicesManager {
+
+    private final static String TAG = MJAWebServicesManager.class.getSimpleName();
+    private static MJAWebServicesManager mInstance;
+    private Context mContext;
+
+    private MJAWebServicesManager(Context sContext){
+        mContext = sContext;
+    }
+
+    public static MJAWebServicesManager getInstance(Context sContext){
+        if(mInstance == null){
+            mInstance = new MJAWebServicesManager(sContext);
+        }
+        return mInstance;
+    }
+
+
+    public String startConnexionService(JSONObject sJsonLogin) {
+
+        String tLogin = "",tMdp ="", rMessage = "utilisateur ou mot de passe incorrect",rAgent = "999",rJson = "";
+        int rCode = 400;
+
+        try {
+            if(sJsonLogin != null){
+                tLogin = sJsonLogin.getString(mContext.getString(R.string.json_login));
+                tMdp = sJsonLogin.getString(mContext.getString(R.string.json_mdp));
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        if(tLogin.equals(mContext.getString(R.string.ws_manager_good_login))){
+            if(tMdp.equals(mContext.getString(R.string.ws_manager_good_mdp))){
+                rCode = 200;
+                rMessage = mContext.getString(R.string.ws_manager_success);
+                rAgent = "007";
+            }
+        }
+        rJson = "{\"code\":"+rCode+",\"message\":\""+rMessage+"\",\"agent\":\""+rAgent+"\"}";
+        return rJson;
+    }
+
+
+    public String startGetMissionsService(){
+        String rJson = "\"message\":\"SUCCESS\",\"code\":200,\"agent\":\"007\", \"missions\":["
+        +"{\"id\":1,\"nom\":\"Spectre\",\"date\": 2015,\"ville\":\"Rome\",\"pays\":\"Italie\""
+        +"},{\"id\":2,\"nom\":\"Skyfall\",\"date\": 2012,\"ville\":\"Londres\",\"pays\":\"Angleterre\""
+        +"},{\"id\":3,\"nom\":\"Quantum of Solace\",\"date\": 2008,\"ville\":\"Bregenz\",\"pays\":\"Autriche\""
+        + "},{\"id\":4,\"nom\":\"Casino Royale\",\"date\": 2006,\"ville\":\"Nassau\",\"pays\":\"Bahmas\"}]}";
+
+        return rJson;
+    }
+}
