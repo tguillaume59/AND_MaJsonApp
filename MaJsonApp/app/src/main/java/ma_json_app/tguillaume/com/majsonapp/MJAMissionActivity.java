@@ -1,9 +1,11 @@
 package ma_json_app.tguillaume.com.majsonapp;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 
@@ -14,7 +16,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 import ma_json_app.tguillaume.com.majsonapp.adapter.MJAListMissionAdapter;
-import ma_json_app.tguillaume.com.majsonapp.adapter.MJAMission;
+import ma_json_app.tguillaume.com.majsonapp.entities.MJAMission;
 import ma_json_app.tguillaume.com.majsonapp.wsManager.MJAWebServicesManager;
 
 /**
@@ -26,7 +28,7 @@ import ma_json_app.tguillaume.com.majsonapp.wsManager.MJAWebServicesManager;
  * Copyright © 2017 tguillaume. All rights reserved.
  */
 
-public class MJAMissionActivity extends AppCompatActivity implements View.OnClickListener{
+public class MJAMissionActivity extends AppCompatActivity implements View.OnClickListener, AdapterView.OnItemClickListener{
 
     private final static String  TAG = MJAMissionActivity.class.getSimpleName();
     private ListView mListviewMission;
@@ -47,7 +49,10 @@ public class MJAMissionActivity extends AppCompatActivity implements View.OnClic
         if(tBundle != null){
             mAgentId = tBundle.getString("BUNDLE_AGENT");
         }
+
+        //on link avec les listener
         mLogoutBtn.setOnClickListener(this);
+        mListviewMission.setOnItemClickListener(this);
     }
 
     @Override
@@ -110,5 +115,11 @@ public class MJAMissionActivity extends AppCompatActivity implements View.OnClic
         mArrayAdapter = new MJAListMissionAdapter(this,R.layout.item_listview_mission,mListMissions);
         mListviewMission.setAdapter(mArrayAdapter);
 
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+        Intent tIntent = new Intent(this, MJASelectEquipActivity.class);
+        startActivity(tIntent);
     }
 }

@@ -1,4 +1,4 @@
-package ma_json_app.tguillaume.com.majsonapp.adapter;
+package ma_json_app.tguillaume.com.majsonapp.entities;
 
 /**
  * @Project : AND_MaJsonApp

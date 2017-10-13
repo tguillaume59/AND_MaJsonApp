@@ -45,7 +45,7 @@
         android:padding="15dp"
         android:textColor="@color/MJA_White_transparent"
         android:textSize="18sp"
-        android:text="@string/activity_logout_btn"/>
+        android:text="@string/activity_mission_logout_btn"/>
 
 
 </RelativeLayout>

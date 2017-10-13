@@ -19,7 +19,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MJAMissionActivity"></activity>
+        <activity
+            android:name=".MJAMissionActivity"
+            android:screenOrientation="portrait"></activity>
+
+        <activity android:name=".MJASelectEquipActivity"
+            android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>

@@ -10,13 +10,34 @@
 
     <!-- Activity missions -->
     <string name="activity_mission_title">Selectionnez la mission à éffectuer</string>
-    <string name="activity_logout_btn">Déconnexion</string>
+    <string name="activity_mission_logout_btn">Déconnexion</string>
     <!-- list adapter mission -->
     <string name="item_list_mission_id">Mission </string>
     <string name="item_list_mission_name">Nom : </string>
     <string name="item_list_mission_date">Date : </string>
     <string name="item_list_mission_place">Lieu : </string>
 
+    <!-- activity equipment -->
+    <string name="activity_equipment_title">Selectionnez votre équipement</string>
+    <string name="activity_equipment_weapon_textview">Arme</string>
+    <string name="activity_equipment_car_textview">Voiture</string>
+    <string name="activity_equipment_start_mission_btn">Commencer la mission</string>
+
+    <string name="activity_equipment_weapon_pp9_name_textview">Walter\nPP9</string>
+    <string name="activity_equipment_weapon_m4_name_textview">Colt\nM4A1</string>
+    <string name="activity_equipment_weapon_mp5_name_textview">H&amp;K\nMP5</string>
+
+    <string name="activity_equipment_weapon_pp9_equipment_textview">Lampe</string>
+    <string name="activity_equipment_weapon_m4_equipment_textview">RedDot\nPoignée</string>
+    <string name="activity_equipment_weapon_mp5_equipment_textview">Silencieux\nRedDot</string>
+
+    <string name="activity_equipment_car_1_name_textview">Pfister\nComet</string>
+    <string name="activity_equipment_car_2_name_textview">Grotti\nBestia GTS</string>
+    <string name="activity_equipment_car_3_name_textview">Schafter\nV12</string>
+
+    <string name="activity_equipment_car_1_equipment_textview">Lampe</string>
+    <string name="activity_equipment_car_2_equipment_textview">RedDot\nPoignée</string>
+    <string name="activity_equipment_car_3_equipment_textview">Silencieux\nRedDot</string>
 
     <!-- WS -->
     <string name="ws_manager_good_login">jamesbond</string>

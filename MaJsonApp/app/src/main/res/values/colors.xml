@@ -10,5 +10,6 @@
     <color name="MJA_White">#FFFFFF</color>
     <color name="MJA_White_transparent">#CCFFFFFF</color>
     <color name="MJA_Red">#DC143C</color>
+    <color name="MJA_Green">#32CD32</color>
 
 </resources>
