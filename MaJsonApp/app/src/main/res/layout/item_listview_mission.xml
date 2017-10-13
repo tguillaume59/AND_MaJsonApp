@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/shape_border_layout">
+
+    <LinearLayout
+        android:id="@+id/item_listview_mission_title_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_background_title_item_mission_layout">
+
+    <TextView
+        android:id="@+id/item_listview_mission_id_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:textColor="@color/MJA_Gray_48"
+        android:text="mission 1"/>
+
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/item_listview_mission_name_textview"
+        android:layout_below="@+id/item_listview_mission_title_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="15dp"
+        android:layout_marginLeft="15dp"
+        android:textStyle="normal"
+        android:textSize="18sp"
+        android:textColor="@color/MJA_White"
+        android:text="Nom : Barkhane"/>
+
+    <TextView
+        android:id="@+id/item_listview_mission_date_textview"
+        android:layout_below="@+id/item_listview_mission_name_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="15dp"
+        android:layout_marginLeft="15dp"
+        android:textStyle="normal"
+        android:textSize="18sp"
+        android:textColor="@color/MJA_White"
+        android:text="date : 21/10/2017"/>
+
+    <TextView
+        android:id="@+id/item_listview_mission_town_textview"
+        android:layout_below="@+id/item_listview_mission_date_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginBottom="15dp"
+        android:textStyle="normal"
+        android:textSize="18sp"
+        android:textColor="@color/MJA_White"
+        android:text="Lieu : Lille"/>
+
+    <TextView
+        android:id="@+id/item_listview_mission_country_textview"
+        android:layout_below="@+id/item_listview_mission_date_textview"
+        android:layout_toRightOf="@+id/item_listview_mission_town_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginBottom="15dp"
+        android:textStyle="normal"
+        android:textSize="18sp"
+        android:textColor="@color/MJA_White"
+        android:text="(France)"/>
+
+</RelativeLayout>

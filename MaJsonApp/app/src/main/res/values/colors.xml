@@ -4,8 +4,10 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
 
+    <color name="MJA_Black">#000000</color>
     <color name="MJA_Gray_48">#484848</color>
     <color name="MJA_Yellow_gold">#ecc71d</color>
+    <color name="MJA_White">#FFFFFF</color>
     <color name="MJA_White_transparent">#CCFFFFFF</color>
     <color name="MJA_Red">#DC143C</color>
 

@@ -1,4 +1,4 @@
-package ma_json_app.tguillaume.com.majsonapp.WSManager;
+package ma_json_app.tguillaume.com.majsonapp.wsManager;
 
 /**
  * @Project : AND_MaJsonApp
@@ -65,8 +65,13 @@ public class MJAWebServicesManager {
     }
 
 
-    public String startGetMissionsService(){
-        String rJson = "\"message\":\"SUCCESS\",\"code\":200,\"agent\":\"007\", \"missions\":["
+    /**
+     * simule l'appel au WS pour recuperer les missions pour un agent donné
+     * @param sAgentId l'id de l'agent envoyé de type POST sur un vrai WS
+     * @return le string de retour contenant toutes les missions
+     */
+    public String startGetMissionsService(String sAgentId){
+        String rJson = "{\"message\":\"SUCCESS\",\"code\":200,\"agent\":\"007\", \"missions\":["
         +"{\"id\":1,\"nom\":\"Spectre\",\"date\": 2015,\"ville\":\"Rome\",\"pays\":\"Italie\""
         +"},{\"id\":2,\"nom\":\"Skyfall\",\"date\": 2012,\"ville\":\"Londres\",\"pays\":\"Angleterre\""
         +"},{\"id\":3,\"nom\":\"Quantum of Solace\",\"date\": 2008,\"ville\":\"Bregenz\",\"pays\":\"Autriche\""

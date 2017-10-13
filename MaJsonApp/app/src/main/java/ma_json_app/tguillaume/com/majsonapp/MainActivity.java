@@ -12,7 +12,16 @@ import android.widget.Toast;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import ma_json_app.tguillaume.com.majsonapp.WSManager.MJAWebServicesManager;
+import ma_json_app.tguillaume.com.majsonapp.wsManager.MJAWebServicesManager;
+
+/**
+ * @Project : AND_MaJsonApp
+ *
+ * MainActivity.java
+ *
+ * Created by TARTARA Guillaume on 11/10/2017
+ * Copyright © 2017 tguillaume. All rights reserved.
+ */
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 

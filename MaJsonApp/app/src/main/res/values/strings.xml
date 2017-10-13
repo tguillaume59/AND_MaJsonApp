@@ -1,21 +1,39 @@
 <resources>
     <string name="app_name">MaJsonApp</string>
 
+    <!-- Acitivity main -->
     <string name="activity_main_title">Connectez vous</string>
     <string name="activity_main_login_hint">Login </string>
     <string name="activity_main_mdp_hint">Mot de passe</string>
     <string name="activity_main_btn">Connexion</string>
 
 
-
-    <string name="activity_mission_title">Vos missions</string>
+    <!-- Activity missions -->
+    <string name="activity_mission_title">Selectionnez la mission à éffectuer</string>
     <string name="activity_logout_btn">Déconnexion</string>
+    <!-- list adapter mission -->
+    <string name="item_list_mission_id">Mission </string>
+    <string name="item_list_mission_name">Nom : </string>
+    <string name="item_list_mission_date">Date : </string>
+    <string name="item_list_mission_place">Lieu : </string>
 
+
+    <!-- WS -->
     <string name="ws_manager_good_login">jamesbond</string>
     <string name="ws_manager_good_mdp">azerty</string>
     <string name="ws_manager_success">SUCCESS</string>
 
     <!-- json key -->
+    <string name="json_message">message</string>
+    <string name="json_code">code</string>
     <string name="json_login">login</string>
     <string name="json_mdp">password</string>
+
+    <string name="json_mission_array">missions</string>
+    <string name="json_mission_id">id</string>
+    <string name="json_mission_name">nom</string>
+    <string name="json_mission_date">date</string>
+    <string name="json_mission_town">ville</string>
+    <string name="json_mission_country">pays</string>
+
 </resources>
