@@ -120,6 +120,11 @@ public class MJAMissionActivity extends AppCompatActivity implements View.OnClic
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
         Intent tIntent = new Intent(this, MJASelectEquipActivity.class);
+        MJAMission tMission = mListMissions.get(i);
+        tIntent.putExtra("MISSION_NAME", tMission.getNom());
+        tIntent.putExtra("MISSION_ID",tMission.getId());
+        tIntent.putExtra("AGENT_ID",mAgentId);
+
         startActivity(tIntent);
     }
 }

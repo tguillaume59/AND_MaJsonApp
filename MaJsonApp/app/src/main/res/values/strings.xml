@@ -17,6 +17,12 @@
     <string name="item_list_mission_date">Date : </string>
     <string name="item_list_mission_place">Lieu : </string>
 
+
+    <!-- Mission Accepted -->
+    <string name="activity_mission_accepted_title">Mission acceptée !</string>
+    <string name="activity_mission_accepted_subtitle">Ce message s\'auto-détruira dans :</string>
+    <string name="activity_mission_accepted_subtitle_second">seconde</string>
+
     <!-- activity equipment -->
     <string name="activity_equipment_title">Selectionnez votre équipement</string>
     <string name="activity_equipment_weapon_textview">Arme</string>

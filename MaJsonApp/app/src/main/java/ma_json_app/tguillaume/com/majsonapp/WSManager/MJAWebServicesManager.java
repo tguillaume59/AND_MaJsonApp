@@ -11,6 +11,7 @@ package ma_json_app.tguillaume.com.majsonapp.wsManager;
 
 import android.content.Context;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -77,6 +78,37 @@ public class MJAWebServicesManager {
         +"},{\"id\":3,\"nom\":\"Quantum of Solace\",\"date\": 2008,\"ville\":\"Bregenz\",\"pays\":\"Autriche\""
         + "},{\"id\":4,\"nom\":\"Casino Royale\",\"date\": 2006,\"ville\":\"Nassau\",\"pays\":\"Bahmas\"}]}";
 
+        return rJson;
+    }
+
+    public String startMissionEquipmentSelectedService(String sJson){
+        String tAgentId = "",tMissionName ="", rMessage = "équipement non configuré correctement",rJson = "";
+        int rCode = 400;
+        JSONObject tCar = null, tGun=null;
+
+        try {
+            JSONObject tJsonObject = new JSONObject(sJson);
+            if(tJsonObject != null){
+                tAgentId = tJsonObject.getString("agent_id");
+                tMissionName = tJsonObject.getString("mission_name");
+                tCar = tJsonObject.getJSONObject("car");
+                tGun = tJsonObject.getJSONObject("weapon");
+            }
+            if(tAgentId != null && tMissionName != null && tCar != null && tGun != null){
+                // ici doit se trouver un
+                // gros algorithme digne du MI6
+                // qui va determiner le taux de deception de Q
+                // quand Bond aura encore détruit la voiture
+                // et celui de M quand il fera autre chose avec une femme
+                // que de completer sa mission ;)
+
+                rMessage = mContext.getString(R.string.ws_manager_success);
+                rCode = 200;
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        rJson = "{\"code\":"+rCode+",\"message\":\""+rMessage+"\"}";
         return rJson;
     }
 }

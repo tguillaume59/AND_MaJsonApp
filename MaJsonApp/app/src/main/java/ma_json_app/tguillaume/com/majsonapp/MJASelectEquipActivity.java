@@ -1,17 +1,28 @@
 package ma_json_app.tguillaume.com.majsonapp;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.Toast;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import ma_json_app.tguillaume.com.majsonapp.entities.MJACar;
 import ma_json_app.tguillaume.com.majsonapp.entities.MJAGun;
 import ma_json_app.tguillaume.com.majsonapp.entities.MJAGunEquipment;
+import ma_json_app.tguillaume.com.majsonapp.wsManager.MJAWebServicesManager;
 
 /**
  * @Project : AND_MaJsonApp
@@ -33,10 +44,20 @@ public class MJASelectEquipActivity extends AppCompatActivity implements OnClick
     private MJAGun mCurrentGunSelected;
     private MJACar mCurrentCarSelected;
 
+    private String mMissionName, mAgentId;
+    private int mMissionId;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_equip);
+
+        Bundle tBundle = this.getIntent().getExtras();
+        if(tBundle != null){
+            mMissionId = tBundle.getInt("MISSION_ID");
+            mMissionName = tBundle.getString("MISSION_NAME");
+            mAgentId = tBundle.getString("AGENT_ID");
+        }
 
         mGun1Layout = (LinearLayout)findViewById(R.id.activity_equipment_select_weapon1_layout);
         mGun2Layout = (LinearLayout)findViewById(R.id.activity_equipment_select_weapon2_layout);
@@ -109,6 +130,51 @@ public class MJASelectEquipActivity extends AppCompatActivity implements OnClick
      * @return le json créé sous forme de String
      */
     private String createJsonDataEquipmentsSelected(){
+        Log.i(TAG, "createJsonDataEquipmentsSelected");
+        final GsonBuilder builder = new GsonBuilder();
+        final Gson gson = builder.create();
+
+        //le json final
+        HashMap<String, Object> tJsonMap = new HashMap<>();
+        //on ajoute les données de premier niveau
+        tJsonMap.put("agent_id",mAgentId);
+        tJsonMap.put("mission_id",mMissionId);
+        tJsonMap.put("mission_name",mMissionName);
+
+        //on créé le niveau 2 : l'arme avec ses équipement
+        HashMap<String, Object> tJsonGun = new HashMap<>();
+        tJsonGun.put("gun_manufacter",mCurrentGunSelected.getManufacter());
+        tJsonGun.put("gun_model",mCurrentGunSelected.getModel());
+        tJsonGun.put("gun_equipments",mCurrentGunSelected.getListEquipment());
+        //on ajoute le niveau 2 dans le niveau 1
+        tJsonMap.put("weapon",tJsonGun);
+
+        //on créé un objet voiture
+        HashMap<String, Object> tJsonCar = new HashMap<>();
+        tJsonCar.put("car_brand",mCurrentCarSelected.getBrand());
+        tJsonCar.put("car_model",mCurrentCarSelected.getModel());
+        //on ajoute la voiture dans le premier niveau
+        tJsonMap.put("car",tJsonCar);
+
+        //on transforme la HashMap en un string JSON
+        String rJson = gson.toJson(tJsonMap);
+        return rJson;
+
+    }
+
+    private void onSuccessSelectEquipementWS(String sResponseJson){
+
+        try {
+            JSONObject tJsonObject = new JSONObject(sResponseJson);
+            String tMessage = tJsonObject.getString("message");
+            if(getString(R.string.ws_manager_success).equals(tMessage)){
+                //on affiche la vue finale
+                Intent tIntent = new Intent(this,MJAMissionAcceptedActivity.class);
+                startActivity(tIntent);
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
 
     }
 
@@ -158,7 +224,16 @@ public class MJASelectEquipActivity extends AppCompatActivity implements OnClick
                 break;
 
             case R.id.activity_equipment_start_mission_btn:
+                if(mCurrentCarSelected == null || mCurrentGunSelected == null){
+                    //aucun choix de fait
+                    Toast.makeText(this, "Choisissez une arme et une voiture pour commencer la mission", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 String tJson = createJsonDataEquipmentsSelected();
+                //envoie au WS normalement
+                String tJsonResponse = MJAWebServicesManager.getInstance(this).startMissionEquipmentSelectedService(tJson);
+                //si SUCCESS : mission validé donc on passe à la derniere vue
+                onSuccessSelectEquipementWS(tJsonResponse);
 
                 break;
         }

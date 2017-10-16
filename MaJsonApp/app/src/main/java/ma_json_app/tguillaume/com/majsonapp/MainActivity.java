@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 JSONObject tJsonLogin = createLoginJsonObject(tLogin,tMdp);
                 //on appelle le WS <-- fictif ici
                 String tResponse = mWSManager.startConnexionService(tJsonLogin);
-                processLoginResponse(tResponse);
+                OnSuccessLoginResponse(tResponse);
 
                 break;
         }
@@ -87,17 +87,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         return rJsonObject;
     }
 
-    private void processLoginResponse(String sJsonReceive){
+    private void OnSuccessLoginResponse(String sJsonReceive){
         try {
             JSONObject tJsonReceive = new JSONObject(sJsonReceive);
             String tMessage = tJsonReceive.getString("message");
             if((this.getString(R.string.ws_manager_success)).equals(tMessage)){
                 //SUCCESS donc on passe à la vue suivante
                 String tAgent = tJsonReceive.getString("agent");
-                Bundle tBundle = new Bundle();
-                tBundle.putString("BUNDLE_AGENT",tAgent);
                 Intent tIntent = new Intent(this,MJAMissionActivity.class);
-                startActivity(tIntent,tBundle);
+                tIntent.putExtra("BUNDLE_AGENT",tAgent);
+
+                startActivity(tIntent);
             }else {
                 //erreur donc on affiche le messagde d'erreur
                 Toast.makeText(this, tMessage, Toast.LENGTH_SHORT).show();
