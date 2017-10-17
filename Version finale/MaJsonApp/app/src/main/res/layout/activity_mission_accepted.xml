@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="ma_json_app.tguillaume.com.majsonapp.MJAMissionAcceptedActivity"
+    android:background="@color/MJA_Gray_48">
+
+    <TextView
+        android:id="@+id/activity_mission_accepted_title"
+        android:layout_above="@+id/activity_mission_accepted_subtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        android:textSize="30sp"
+        android:textColor="@color/MJA_Red"
+        android:text="@string/activity_mission_accepted_title"/>
+
+    <TextView
+        android:id="@+id/activity_mission_accepted_subtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:textColor="@color/MJA_White"
+        android:text="@string/activity_mission_accepted_subtitle"/>
+
+
+</RelativeLayout>
